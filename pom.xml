@@ -16,6 +16,8 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.release>21</maven.compiler.release>
+        <mockbukkit.artifactId>mockbukkit-v1.21</mockbukkit.artifactId>
+        <mockbukkit.version>4.83.1</mockbukkit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -166,8 +168,8 @@
         </dependency>
         <dependency>
             <groupId>org.mockbukkit.mockbukkit</groupId>
-            <artifactId>mockbukkit-v1.21</artifactId>
-            <version>4.83.1</version>
+            <artifactId>${mockbukkit.artifactId}</artifactId>
+            <version>${mockbukkit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -230,4 +232,19 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- mvn -P mc-26.2 verify  (JDK 25): compila y ejecuta los tests contra Paper 26.2.x -->
+        <profile>
+            <id>mc-26.2</id>
+            <properties>
+                <paper.version>26.2.build.129-stable</paper.version>
+                <maven.compiler.source>25</maven.compiler.source>
+                <maven.compiler.target>25</maven.compiler.target>
+                <maven.compiler.release>25</maven.compiler.release>
+                <mockbukkit.artifactId>mockbukkit-v26.2</mockbukkit.artifactId>
+                <mockbukkit.version>4.116.1</mockbukkit.version>
+            </properties>
+        </profile>
+    </profiles>
 </project>
