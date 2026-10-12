@@ -1,7 +1,6 @@
 package dev.walshy.sfmobdrops;
 
 
-import com.github.drakescraft_labs.labupdate.DrakesLabsReleaseUpdate;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.core.debug.Debug;
@@ -46,8 +45,6 @@ public class SfMobDrops extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        DrakesLabsReleaseUpdate.schedule(this, "SFMobDrops-drake");
-
         setInstance(this);
         if (!new File(getDataFolder(), "config.yml").exists()) {
             saveDefaultConfig();
