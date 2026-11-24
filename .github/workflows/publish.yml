@@ -25,6 +25,10 @@ jobs:
         run: mvn clean package
 
       - name: Upload to Blob Builds
+        # El secret es del upstream; sin el, solo se valida el build (Modrinth publica aparte)
+        if: env.BLOB_TOKEN != ''
+        env:
+          BLOB_TOKEN: ${{ secrets.BLOB_BUILDS_API_TOKEN }}
         uses: WalshyDev/blob-builds/gh-action@main
         with:
           project: SFMobDrops
